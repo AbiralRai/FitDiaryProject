@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FitDiary</string>
+    <string name="logout_label">Log Out</string>
+    <string name="app_label">FitDiary</string>
+    <string name="search_hint">Food</string>
+    <string name="search_title">Search for Food</string>
+</resources>
