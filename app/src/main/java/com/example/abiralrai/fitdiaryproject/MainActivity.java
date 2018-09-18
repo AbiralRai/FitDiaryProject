@@ -13,6 +13,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;import com.parse.ParseAnalytics;import com.parse.ParseException;import com.parse.ParseObject;
@@ -20,6 +27,13 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;import com.parse.ParseInstallation;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
+import java.util.Arrays;
+
+import static com.facebook.FacebookSdk.*;
+import static com.facebook.appevents.AppEventsLogger.*;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
 
@@ -28,9 +42,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText usernameEditText;
     EditText passwordEditText;
 
+    LoginButton loginButton;
+    CallbackManager callbackManager;
+    private static final String EMAIL = "email";
+
     public void showDashboard() {
         Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -108,6 +127,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList(EMAIL));
+
+        // Login Button callback registration
+        callbackManager = CallbackManager.Factory.create();
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        // App code
+                        showDashboard();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                // Error msg display
+                String toastMessage = exception.getMessage();
+                Toast.makeText(MainActivity.this, toastMessage, Toast.LENGTH_LONG).show();
+                    }
+                });
+
         loginTextView = findViewById(R.id.loginTextView);
         loginTextView.setOnClickListener(this);
 
@@ -123,6 +170,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(ParseUser.getCurrentUser() != null) {
             showDashboard();
         }
+
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+        // check for an existing access token
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        com.facebook.AccessToken loginToken = com.facebook.AccessToken.getCurrentAccessToken();
+        if (accessToken != null || loginToken != null) {
+            // if previously logged in, proceed to the account activity
+            showDashboard();
+        }
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+
+
+
+}
+
+
 
 //        ParseObject tweet = new ParseObject("Tweet");
 //        tweet.put("username", "Abiral");
@@ -194,8 +269,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.i("Status", "Not Signed IN");
         }
         */
-
-
-        ParseAnalytics.trackAppOpenedInBackground(getIntent());
-
-    }}

@@ -4,4 +4,8 @@
     <string name="app_label">FitDiary</string>
     <string name="search_hint">Food</string>
     <string name="search_title">Search for Food</string>
+
+    <string name="facebook_app_id">425577934634799</string>
+    <string name="fb_login_protocol_scheme">fb425577934634799</string>
+
 </resources>

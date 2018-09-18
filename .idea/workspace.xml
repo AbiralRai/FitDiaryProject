@@ -6,10 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e709ebc3-3fd6-45c2-9297-c0b57d3cca73" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_food_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_food_item.xml" />
-    </list>
+    <list default="true" id="e709ebc3-3fd6-45c2-9297-c0b57d3cca73" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

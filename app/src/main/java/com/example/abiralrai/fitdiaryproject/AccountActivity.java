@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.login.LoginManager;
 import com.parse.ParseUser;
+
 
 public class AccountActivity extends AppCompatActivity {
 
@@ -38,6 +40,8 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+
+
         usernameTextView = findViewById(R.id.usernameTextView);
         usernameTextView.setText(ParseUser.getCurrentUser().getUsername());
 
@@ -45,4 +49,5 @@ public class AccountActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
 }
