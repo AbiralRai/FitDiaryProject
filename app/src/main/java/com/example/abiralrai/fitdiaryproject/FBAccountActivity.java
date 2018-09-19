@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ public class FBAccountActivity extends AppCompatActivity {
     ImageView profilePic;
     TextView usernameTextView;
     Intent intent;
+    Button btnUploadPic;
+
 
 
     @Override
@@ -29,7 +32,10 @@ public class FBAccountActivity extends AppCompatActivity {
 
         usernameTextView = findViewById(R.id.usernameTextView);
         profilePic = findViewById(R.id.profilePic);
+        btnUploadPic = findViewById(R.id.btnUploadPic);
         getProfileInfo();
+        btnUploadPic.setText("");
+        btnUploadPic.setOnClickListener(null);
 
         // Add back button
         getSupportActionBar().setDisplayShowHomeEnabled(true);

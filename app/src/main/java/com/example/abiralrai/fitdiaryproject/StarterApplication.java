@@ -13,10 +13,13 @@ public class StarterApplication extends Application {
     @Override public void onCreate() {
         super.onCreate();
 
+
+        //kgple6LzZRoI (password for bitnami)
+
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("d252a85e203dc609f2700e8a3581f5dc32175cc3")
-                .clientKey("afc45909ef1062cc5b50d10141bef8a00b5a7c85")
-                .server("http://13.58.4.154:80/parse/")
+                .applicationId("a0fc2feea24a292479e83d0901196a5edd3dd61e")
+                .clientKey("2e7f13c097f7d34828bf3db66b6022048ad69130")
+                .server("http://18.222.144.81:80/parse/")
                 .build()
         );
 
