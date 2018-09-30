@@ -19,6 +19,7 @@ import com.parse.ParseUser;
 
 import java.util.EmptyStackException;
 
+import android.support.v4.app.Fragment;
 public class DashboardActivity extends AppCompatActivity {
 
     @Override
@@ -74,6 +75,7 @@ public class DashboardActivity extends AppCompatActivity {
         } else {
             Log.i("onCreate: ", "FB NOT NULL");
         }
-    }
+        }
+
 
 }

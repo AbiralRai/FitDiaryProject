@@ -11,9 +11,18 @@
 
     <color name="white">#fff</color>
     <color name="greyText">#808080</color>
-    <color name="black">#000000</color>
     <color name="indigo_white">#C5CAE9</color>
     <color name="green">#00b200</color>
     <color name="myRed">#de0000</color>
+
+
+    <color name="primary">#9E9E9E</color>
+    <color name="primary_dark">#757575</color>
+    <color name="text_color_primary">#FFF</color>
+    <color name="text_color">#6D6D6D</color>
+    <color name="black">#000</color>
+    <color name="grey_transparent">#50000000</color>
+    <color name="blue">#58ACFA</color>
+
 
 </resources>
