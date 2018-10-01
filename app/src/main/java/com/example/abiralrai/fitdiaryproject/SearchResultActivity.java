@@ -24,28 +24,16 @@ public class SearchResultActivity extends AppCompatActivity  implements FatSecre
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         fatSecretSearch = new FatSecretSearchFragment();
         if (fatSecretSearch != null)
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new FatSecretSearchFragment()).commit();
+
+
     }
 
     @Override
     public void fromFragment() {
 
     }
-    @Override
-    // Returns back to previous intent
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            // Ends activity
-            this.finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }

@@ -1,6 +1,7 @@
 package com.example.abiralrai.fitdiaryproject;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -59,6 +60,7 @@ public class FatSecretSearchFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         v = inflater.inflate(R.layout.fragment_fatsecret_search, container, false);
         mListViewFooter = inflater.inflate(search_row_footer, null);
         if (savedInstanceState != null) {
@@ -66,6 +68,7 @@ public class FatSecretSearchFragment extends Fragment {
             STRING_FOOD_SEARCH = savedInstanceState.getString("STRING_FOOD_SEARCH");
             SEARCH_RETAIN = savedInstanceState.getBoolean("SEARCH_RETAIN");
         }
+
         findViewsById();
         toolbarTop();
         toolbarSearch();
@@ -154,9 +157,10 @@ public class FatSecretSearchFragment extends Fragment {
 
     private void toolbarTop() {
         mToolbarTop.setTitle("Search");
-        mToolbarTop.setNavigationIcon(R.mipmap.ic_logo);
+        mToolbarTop.setNavigationIcon(R.mipmap.ic_arrow_back_white);
         mToolbarTop.inflateMenu(R.menu.menu_main);
         mToolbarTop.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 int itemId = item.getItemId();
@@ -170,6 +174,13 @@ public class FatSecretSearchFragment extends Fragment {
                     imm.toggleSoftInput(0, 0);
                 }
                 return false;
+            }
+
+        });
+        mToolbarTop.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
             }
         });
     }
@@ -193,6 +204,7 @@ public class FatSecretSearchFragment extends Fragment {
                 SEARCH_RETAIN = false;
                 updateList();
             }
+
         });
         mToolbarSearch.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -288,6 +300,7 @@ public class FatSecretSearchFragment extends Fragment {
      */
     String brand;
 
+    @SuppressLint("StaticFieldLeak")
     private void searchFood(final String item, final int page_num) {
         new AsyncTask<String, String, String>() {
             @Override
@@ -458,10 +471,10 @@ public class FatSecretSearchFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         try {
-            mCallbacks = (FragmentCallbacks) activity;
+            mCallbacks = (FragmentCallbacks) context;
         } catch (ClassCastException e) {
             throw new ClassCastException("Activity must implement Fragment Three.");
         }

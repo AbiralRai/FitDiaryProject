@@ -18,10 +18,15 @@
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/splash"/>
+
         <activity android:name=".DashboardActivity"/>
         <activity android:name=".AccountActivity" />
+
         <activity android:name=".FBAccountActivity" />
-        <activity android:name=".SearchResultActivity" />
+
+        <activity android:name=".SearchResultActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
         <activity
             android:name=".Splash"
             android:theme="@style/splash"
@@ -32,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".FoodItem"></activity>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId"

@@ -46,9 +46,6 @@ public class DashboardActivity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 }
-//            case R.id.settings:
-//                Log.i("Item Selected", "Set tings");
-//                return true;
             case R.id.logout:
                 ParseUser.logOut();
                 LoginManager.getInstance().logOut();
