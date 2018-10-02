@@ -336,6 +336,7 @@ public class FatSecretSearchFragment extends Fragment {
                         }
                     }
                 } catch (JSONException exception) {
+                    exception.printStackTrace();
                     return "Error";
                 }
                 return "";
@@ -345,7 +346,7 @@ public class FatSecretSearchFragment extends Fragment {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 if (result.equals("Error"))
-                    Toast.makeText(getActivity(), "No Items Containing Your Search", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "No Items Containing Your Search searchFood", Toast.LENGTH_SHORT).show();
                 mSearchAdapter.notifyDataSetChanged();
                 updateList();
                 mProgressMore.setVisibility(View.INVISIBLE);
@@ -355,9 +356,11 @@ public class FatSecretSearchFragment extends Fragment {
         }.execute();
     }
 
+    String food_name = "";
     /**
      * FatSecret get
      */
+    @SuppressLint("StaticFieldLeak")
     private void getFood(final long id) {
         new AsyncTask<String, String, String>() {
             @Override
@@ -365,11 +368,11 @@ public class FatSecretSearchFragment extends Fragment {
                 JSONObject foodGet = mFatSecretGet.getFood(id);
                 try {
                     if (foodGet != null) {
-                        String food_name = foodGet.getString("food_name");
+                        food_name = foodGet.getString("food_name");
                         JSONObject servings = foodGet.getJSONObject("servings");
 
                         JSONObject serving = servings.getJSONObject("serving");
-                        String calories = serving.getString("calories");
+                         String calories = serving.getString("calories");
                         String carbohydrate = serving.getString("carbohydrate");
                         String protein = serving.getString("protein");
                         String fat = serving.getString("fat");
@@ -386,17 +389,20 @@ public class FatSecretSearchFragment extends Fragment {
                     }
 
                 } catch (JSONException exception) {
+//                    throw new RuntimeException(exception);
+                    exception.printStackTrace();
                     return "Error";
                 }
-                return "";
+                return food_name;
             }
 
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 if (result.equals("Error"))
-                    Toast.makeText(getActivity(), "No Items Containing Your Search", Toast.LENGTH_SHORT).show();
-                mCallbacks.fromFragment();
+                    Toast.makeText(getActivity(), "No Items Containing Your Search getFood", Toast.LENGTH_SHORT).show();
+
+                mCallbacks.fromFragment(result);
             }
         }.execute();
     }
@@ -464,17 +470,18 @@ public class FatSecretSearchFragment extends Fragment {
     /**
      * Interface to transfer data to MainActivity
      */
-    private FragmentCallbacks mCallbacks;
+     public FragmentCallbacks mCallbacks;
 
-    public static interface FragmentCallbacks {
-        void fromFragment();
+    public  interface FragmentCallbacks {
+        void fromFragment(String param);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
         try {
-            mCallbacks = (FragmentCallbacks) context;
+            mCallbacks = (FragmentCallbacks) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException("Activity must implement Fragment Three.");
         }

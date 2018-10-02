@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +35,12 @@ public class SearchResultActivity extends AppCompatActivity  implements FatSecre
     }
 
     @Override
-    public void fromFragment() {
-
+    public void fromFragment(String param) {
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, android.R.anim.fade_out).replace(R.id.container, new FatSecretSearchFragment()).addToBackStack(null).commit();
+        System.out.println("Test: " + param);
+        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+        startActivity(intent);
     }
+
+
 }
