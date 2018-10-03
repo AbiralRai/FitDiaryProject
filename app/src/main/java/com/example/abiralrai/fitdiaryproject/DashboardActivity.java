@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.facebook.Profile;
@@ -20,6 +21,10 @@ import com.parse.ParseUser;
 import java.util.EmptyStackException;
 
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
+
+import com.example.abiralrai.fitdiaryproject.SearchRowAdapter.FoodListRowAdapter;
+
 public class DashboardActivity extends AppCompatActivity {
 
     @Override
@@ -63,6 +68,8 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
+    private ListView mListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,15 @@ public class DashboardActivity extends AppCompatActivity {
         } else {
             Log.i("onCreate: ", "FB NOT NULL");
         }
-        }
 
+
+    String food_name = getIntent().getStringExtra("food_name");
+    String calories = getIntent().getStringExtra("calories");
+    String carbohydrate = getIntent().getStringExtra("carbohydrate");
+    String protein = getIntent().getStringExtra("protein");
+    String fat = getIntent().getStringExtra("fat");
+    String serving_description = getIntent().getStringExtra("serving_description");
+
+        }
 
 }

@@ -357,6 +357,11 @@ public class FatSecretSearchFragment extends Fragment {
     }
 
     String food_name = "";
+    String calories = "";
+    String carbohydrate = "";
+    String protein = "";
+    String fat = "";
+    String serving_description = "";
     /**
      * FatSecret get
      */
@@ -372,11 +377,11 @@ public class FatSecretSearchFragment extends Fragment {
                         JSONObject servings = foodGet.getJSONObject("servings");
 
                         JSONObject serving = servings.getJSONObject("serving");
-                         String calories = serving.getString("calories");
-                        String carbohydrate = serving.getString("carbohydrate");
-                        String protein = serving.getString("protein");
-                        String fat = serving.getString("fat");
-                        String serving_description = serving.getString("serving_description");
+                        calories = serving.getString("calories");
+                        carbohydrate = serving.getString("carbohydrate");
+                        protein = serving.getString("protein");
+                        fat = serving.getString("fat");
+                        serving_description = serving.getString("serving_description");
                         Log.e("serving_description", serving_description);
                         /**
                          * Displays results in the LogCat
@@ -393,7 +398,7 @@ public class FatSecretSearchFragment extends Fragment {
                     exception.printStackTrace();
                     return "Error";
                 }
-                return food_name;
+                return "";
             }
 
             @Override
@@ -402,7 +407,7 @@ public class FatSecretSearchFragment extends Fragment {
                 if (result.equals("Error"))
                     Toast.makeText(getActivity(), "No Items Containing Your Search getFood", Toast.LENGTH_SHORT).show();
 
-                mCallbacks.fromFragment(result);
+                mCallbacks.fromFragment(food_name, calories, carbohydrate, protein, fat, serving_description);
             }
         }.execute();
     }
@@ -473,7 +478,7 @@ public class FatSecretSearchFragment extends Fragment {
      public FragmentCallbacks mCallbacks;
 
     public  interface FragmentCallbacks {
-        void fromFragment(String param);
+        void fromFragment(String food_name, String calories, String carbohydrate, String protein, String fat, String serving_description);
     }
 
     @SuppressWarnings("deprecation")
