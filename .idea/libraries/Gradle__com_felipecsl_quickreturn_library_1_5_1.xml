@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.felipecsl.quickreturn:library-1.5.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.1.aar/1e42201734aa786df21eb6bea071a1cd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.1.aar/1e42201734aa786df21eb6bea071a1cd/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.felipecsl.quickreturn/library/1.5.1/f69e378f991129cca238a8e49bdb3dffa7d41c7e/library-1.5.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
