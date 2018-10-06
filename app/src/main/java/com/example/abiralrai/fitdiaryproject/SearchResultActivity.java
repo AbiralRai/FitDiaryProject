@@ -3,21 +3,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.abiralrai.fitdiaryproject.SearchRowAdapter.Item;
 
 public class SearchResultActivity extends AppCompatActivity  implements FatSecretSearchFragment.FragmentCallbacks {
     Fragment fatSecretSearch;
@@ -35,16 +22,17 @@ public class SearchResultActivity extends AppCompatActivity  implements FatSecre
     }
 
     @Override
-    public void fromFragment(String food_name, String calories, String carbohydrate, String protein, String fat, String serving_description) {
+    public void fromFragment(String food_name, String food_description, String brand, String food_id) {
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, android.R.anim.fade_out).replace(R.id.container, new FatSecretSearchFragment()).addToBackStack(null).commit();
-        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+//        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+        Intent intent = new Intent();
         intent.putExtra("food_name", food_name);
-        intent.putExtra("calories", calories);
-        intent.putExtra("carbohydrate", carbohydrate);
-        intent.putExtra("protein", protein);
-        intent.putExtra("fat", fat);
-        intent.putExtra("serving_description", serving_description);
-        startActivity(intent);
+        intent.putExtra("food_description", food_description);
+        intent.putExtra("brand", brand);
+        intent.putExtra("food_id", food_id);
+
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 

@@ -295,6 +295,12 @@ public class FatSecretSearchFragment extends Fragment {
         });
     }
 
+    String food_name = "";
+    String food_description = "";
+    String[] row;
+    String id = "";
+    String food_id = "";
+
     /**
      * FatSecret Search
      */
@@ -319,17 +325,17 @@ public class FatSecretSearchFragment extends Fragment {
                         if (FOODS_ARRAY != null) {
                             for (int i = 0; i < FOODS_ARRAY.length(); i++) {
                                 JSONObject food_items = FOODS_ARRAY.optJSONObject(i);
-                                String food_name = food_items.getString("food_name");
-                                String food_description = food_items.getString("food_description");
-                                String[] row = food_description.split("-");
-                                String id = food_items.getString("food_type");
+                                food_name = food_items.getString("food_name");
+                                food_description = food_items.getString("food_description");
+                                row = food_description.split("-");
+                                id = food_items.getString("food_type");
                                 if (id.equals("Brand")) {
                                     brand = food_items.getString("brand_name");
                                 }
                                 if (id.equals("Generic")) {
                                     brand = "Generic";
                                 }
-                                String food_id = food_items.getString("food_id");
+                                food_id = food_items.getString("food_id");
                                 mItem.add(new Item(food_name, row[1].substring(1),
                                         "" + brand, food_id));
                             }
@@ -346,7 +352,7 @@ public class FatSecretSearchFragment extends Fragment {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 if (result.equals("Error"))
-                    Toast.makeText(getActivity(), "No Items Containing Your Search searchFood", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "No Items Containing Your Search searchFood", Toast.LENGTH_SHORT).show();
                 mSearchAdapter.notifyDataSetChanged();
                 updateList();
                 mProgressMore.setVisibility(View.INVISIBLE);
@@ -356,7 +362,6 @@ public class FatSecretSearchFragment extends Fragment {
         }.execute();
     }
 
-    String food_name = "";
     String calories = "";
     String carbohydrate = "";
     String protein = "";
@@ -394,7 +399,6 @@ public class FatSecretSearchFragment extends Fragment {
                     }
 
                 } catch (JSONException exception) {
-//                    throw new RuntimeException(exception);
                     exception.printStackTrace();
                     return "Error";
                 }
@@ -405,9 +409,9 @@ public class FatSecretSearchFragment extends Fragment {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 if (result.equals("Error"))
-                    Toast.makeText(getActivity(), "No Items Containing Your Search getFood", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "No Items Containing Your Search getFood", Toast.LENGTH_SHORT).show();
 
-                mCallbacks.fromFragment(food_name, calories, carbohydrate, protein, fat, serving_description);
+                mCallbacks.fromFragment(food_name, food_description, brand, food_id);
             }
         }.execute();
     }
@@ -478,7 +482,8 @@ public class FatSecretSearchFragment extends Fragment {
      public FragmentCallbacks mCallbacks;
 
     public  interface FragmentCallbacks {
-        void fromFragment(String food_name, String calories, String carbohydrate, String protein, String fat, String serving_description);
+        void fromFragment(String food_name, String food_description, String brand, String food_id);
+
     }
 
     @SuppressWarnings("deprecation")

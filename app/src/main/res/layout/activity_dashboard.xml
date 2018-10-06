@@ -121,7 +121,7 @@
             <TextView
                 android:id="@+id/food_item_name"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="20"
                 android:gravity="center_horizontal"
                 android:text="Name"
@@ -133,7 +133,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="center_horizontal"
-                android:text="Fat"
+                android:text="Cals"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -142,7 +142,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="center_horizontal"
-                android:text="Carbs"
+                android:text="Fat"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -151,7 +151,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="center_horizontal"
-                android:text="Protein"
+                android:text="Carbs"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="20"
                 android:gravity="center_horizontal"
-                android:text="Cals"
+                android:text="Protein"
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
