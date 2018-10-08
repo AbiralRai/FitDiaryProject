@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Net"
+                    android:text="Remaining"
                     android:textSize="15sp"></TextView>
             </LinearLayout>
         </LinearLayout>
@@ -172,115 +172,115 @@
             android:layout_weight="1" />
 
 
-        <LinearLayout
-            android:id="@+id/nutrition_goals_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dashboard_background"
-            android:padding="10dp"
-            android:paddingTop="10dp"
-            android:weightSum="100">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/nutrition_goals_row"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/dashboard_background"-->
+            <!--android:padding="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:weightSum="100">-->
 
-            <TextView
-                android:id="@+id/goals_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text="Goals"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/goals_name"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text="Goals"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/goal_fat"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/goal_fat"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/goal_carbs"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/goal_carbs"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/goal_protein"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/goal_protein"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/goal_cals"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-        </LinearLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/goal_cals"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/nutrition_totals_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/dashboard_background"
-            android:padding="10dp"
-            android:paddingTop="10dp"
-            android:weightSum="100">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/nutrition_totals_row"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/dashboard_background"-->
+            <!--android:padding="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:weightSum="100">-->
 
-            <TextView
-                android:id="@+id/total_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text="Total"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/total_name"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text="Total"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/total_fat"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/total_fat"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/total_carbs"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/total_carbs"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/total_protein"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/total_protein"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
 
-            <TextView
-                android:id="@+id/total_cals"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="20"
-                android:text=""
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-        </LinearLayout>
+            <!--<TextView-->
+                <!--android:id="@+id/total_cals"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="20"-->
+                <!--android:text=""-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
 
 
     </LinearLayout>

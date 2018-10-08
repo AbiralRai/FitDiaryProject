@@ -24,12 +24,13 @@ public class SearchResultActivity extends AppCompatActivity  implements FatSecre
     @Override
     public void fromFragment(String food_name, String food_description, String brand, String food_id) {
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fade_in, android.R.anim.fade_out).replace(R.id.container, new FatSecretSearchFragment()).addToBackStack(null).commit();
-//        Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+
         Intent intent = new Intent();
         intent.putExtra("food_name", food_name);
         intent.putExtra("food_description", food_description);
         intent.putExtra("brand", brand);
         intent.putExtra("food_id", food_id);
+
 
         setResult(RESULT_OK, intent);
         finish();
